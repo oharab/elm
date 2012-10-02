@@ -12,12 +12,14 @@ namespace elm.shell
 	{
 		public static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			Options opt=new Options();
+			opt.Parse(args);
+			if(opt.Help)
+			{
+				opt.PrintUsage();
+				return;
+			}
 			
-			// TODO: Implement Functionality Here
-			
-			Console.Write("Press any key to continue . . . ");
-			Console.ReadKey(true);
 		}
 	}
 }
