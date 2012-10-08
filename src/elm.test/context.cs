@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace elm.test
 {
 	[TestFixture]
-	public class context
+	public abstract class context
 	{
 		[SetUp]
 		protected virtual void SetUp()
