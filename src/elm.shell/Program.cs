@@ -20,6 +20,14 @@ namespace elm.shell
 				return;
 			}
 			
+			if(opt.Source==string.Empty && opt.Destination!=string.Empty 
+			   || opt.Source!=string.Empty && opt.Destination==string.Empty)
+			{
+				opt.PrintUsage();
+				return;
+			}
+			
+			
 		}
 	}
 }
