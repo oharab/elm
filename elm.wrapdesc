@@ -1,5 +1,6 @@
 ﻿name: elm
 description: eMIS Loader Module
 directory-structure: src/*{scope: shell=console}*/**
+directory-structure: src/*{scope: test=test}*/**
 build: msbuild;project=src/elm/elm.csproj
 depends: openwrap anchored content

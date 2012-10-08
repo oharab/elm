@@ -2,16 +2,19 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 # SharpDevelop 4.2.1.8805
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "elm", "src\elm\elm.csproj", "{CD3A5332-8765-48FB-ACFD-9D2969FC8A77}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "elm.shell", "src\elm.shell\elm.shell.csproj", "{6086F369-6ECD-4773-8790-852C18175B80}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenWrap", "OpenWrap", "{F05FC4B0-ACBA-4D72-8CCC-8A471A7AC292}"
 	ProjectSection(SolutionItems) = postProject
 		elm.wrapdesc = elm.wrapdesc
 		version = version
 		elm.console.wrapdesc = elm.console.wrapdesc
+		elm.test.wrapdesc = elm.test.wrapdesc
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "elm", "src\elm\elm.csproj", "{CD3A5332-8765-48FB-ACFD-9D2969FC8A77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "elm.shell", "src\elm.shell\elm.shell.csproj", "{6086F369-6ECD-4773-8790-852C18175B80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "elm.test", "src\elm.test\elm.test.csproj", "{7B841F27-4CF8-4ED0-B1A0-A52D5CDC925F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,5 +30,9 @@ Global
 		{6086F369-6ECD-4773-8790-852C18175B80}.Debug|x86.ActiveCfg = Debug|x86
 		{6086F369-6ECD-4773-8790-852C18175B80}.Release|x86.Build.0 = Release|x86
 		{6086F369-6ECD-4773-8790-852C18175B80}.Release|x86.ActiveCfg = Release|x86
+		{7B841F27-4CF8-4ED0-B1A0-A52D5CDC925F}.Debug|x86.Build.0 = Debug|x86
+		{7B841F27-4CF8-4ED0-B1A0-A52D5CDC925F}.Debug|x86.ActiveCfg = Debug|x86
+		{7B841F27-4CF8-4ED0-B1A0-A52D5CDC925F}.Release|x86.Build.0 = Release|x86
+		{7B841F27-4CF8-4ED0-B1A0-A52D5CDC925F}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 EndGlobal
