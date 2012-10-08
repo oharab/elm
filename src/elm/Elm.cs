@@ -1,4 +1,5 @@
 ﻿using System;
+using elm.Extensions;
 using elm.Web;
 using OpenFileSystem.IO;
 
@@ -18,7 +19,7 @@ namespace elm
 			ElmResponse r=new ElmResponse();
 			try{
 				sharepointService.CheckOutFile(destination,false,DateTime.Now);
-				
+				sharepointService.UploadFile(destination,source.ToByteArray());
 				sharepointService.CheckInFile(destination,checkInComments,CheckInType.CheckinMajorVersion);
 				r.Status=Status.Ok;
 			}catch(Exception){

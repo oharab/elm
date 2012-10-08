@@ -29,6 +29,7 @@ namespace elm.test.upload
 			given_destination_exists();
 			given_destination_checked_in();
 			Executing(()=>elm.Upload(source,destination,string.Empty))
+				.ShouldNotThrow()
 				;
 		}
 		

@@ -24,5 +24,19 @@ namespace elm.test.extensions
 			Assert.Fail("Expected an exception of type \"{0}\" but none were thrown.", typeof(T).Name);
             return null; // this never happens as Fail will throw...
 		}
+		
+		public static void ShouldNotThrow(this Action codeToExecute) 
+		{
+			try
+			{
+				codeToExecute();
+				Assert.Pass("Action executed successfully.");
+			}
+			catch (Exception)
+			{
+				Assert.Fail("UnExpected an exception.");
+			}
+			
+		}
 	}
 }

@@ -49,5 +49,10 @@ namespace elm.test
 		{
 			return DestinationExists;
 		}
+		
+		public bool UploadFile(Uri destination, byte[] source)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

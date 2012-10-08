@@ -11,6 +11,6 @@ namespace elm.Web
 		
 		bool FileExists(Uri pageUrl);
 		
-		
+		bool UploadFile(Uri destination,byte[] source);
 	}
 }
