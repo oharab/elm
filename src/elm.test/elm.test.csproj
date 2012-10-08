@@ -9,6 +9,7 @@
     <AssemblyName>elm.test</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -41,7 +42,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="context.cs" />
+    <Compile Include="extensions\string_extensions.cs" />
+    <Compile Include="extensions\web_extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="upload\file_upload.cs" />
+    <Compile Include="upload\simple_file_upload.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="extensions" />
+    <Folder Include="extensions\New Folder" />
+    <Folder Include="upload" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\elm\elm.csproj">
+      <Project>{CD3A5332-8765-48FB-ACFD-9D2969FC8A77}</Project>
+      <Name>elm</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\..\wraps\openwrap\build\OpenWrap.CSharp.Targets" />
 </Project>
