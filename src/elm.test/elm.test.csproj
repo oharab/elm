@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="context.cs" />
+    <Compile Include="DumbSharepointService.cs" />
     <Compile Include="extensions\string_extensions.cs" />
+    <Compile Include="extensions\test_extensions.cs" />
     <Compile Include="extensions\web_extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="upload\file_upload.cs" />
@@ -50,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="extensions" />
-    <Folder Include="extensions\New Folder" />
     <Folder Include="upload" />
   </ItemGroup>
   <ItemGroup>

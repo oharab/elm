@@ -9,6 +9,6 @@ namespace elm
 		{
 		}
 		
-		public Status Status { get; private set; }
+		public Status Status { get; internal set; }
 	}
 }

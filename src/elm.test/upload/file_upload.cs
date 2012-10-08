@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using elm.Web;
 using OpenFileSystem.IO;
 using OpenFileSystem.IO.FileSystems.InMemory;
 
@@ -9,20 +10,20 @@ namespace elm.test.upload
 	{
 		protected IFile source;
 		protected Uri destination;
-	    protected bool destination_checked_in;
 		protected Elm elm;
-		protected ElmResponse response;
 		
 		private IFileSystem filesystem=new InMemoryFileSystem();
+		private DumbSharepointService sharepointservice;
 		
 		public file_upload(){
-			elm=new Elm();
+			sharepointservice=new DumbSharepointService();
+			elm=new Elm(sharepointservice);
 		}
 		
 		public void given_source(string filename,string contents){
 			source=filesystem.GetCurrentDirectory().GetFile(filename);
 			using (var writer = new StreamWriter(source.OpenWrite()))
-                writer.Write(contents);
+				writer.Write(contents);
 		}
 		
 		public void given_destination(Uri uri,string contents){
@@ -30,11 +31,21 @@ namespace elm.test.upload
 		}
 		
 		public void given_destination_checked_in(){
-			destination_checked_in=true;
+			sharepointservice.DestinationIsCheckedIn=true;
 		}
-		public void on_upload(){
-			response=elm.Upload(source,destination);
+		
+		public void given_destination_exists()
+		{
+			sharepointservice.DestinationExists=true;
 		}
-			
+		public void given_destination_does_not_exist()
+		{
+			sharepointservice.DestinationExists=false;
+		}
+		
+		public void given_destination_checked_out()
+		{
+			sharepointservice.DestinationIsCheckedIn=false;
+		}
 	}
 }

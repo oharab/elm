@@ -20,27 +20,37 @@ namespace elm.test.upload
 		{
 			given_source("testfile.txt","This is a new file");
 			given_destination("http://example.com/sites/testfile.txt".ToUri(),"This is an old file.");
+			
+		}
+		
+		[Test]
+		public void existing_and_checked_in_destination_succeeds()
+		{
+			given_destination_exists();
 			given_destination_checked_in();
-			on_upload();
+			Executing(()=>elm.Upload(source,destination,string.Empty))
+				;
 		}
 		
 		[Test]
-		public void upload_completes()
+		public void existing_but_not_checked_in_destination_throws_error()
 		{
-			response.Status.Is(Status.Ok);
+			given_destination_exists();
+			given_destination_checked_out();
+			Executing(()=>elm.Upload(source,destination,string.Empty))
+				.ShouldThrow<ElmException>();
 		}
 		
-		[Test]
-		public void file_contents_are_updated()
-		{
-			
-		}
 		
 		[Test]
-		public void file_is_checked_in()
+		public void destination_not_existing_throws()
 		{
-			
+			given_destination_does_not_exist();
+			Executing(()=>elm.Upload(source,destination,string.Empty))
+				.ShouldThrow<ElmException>();
 		}
+		
+		
 		
 		
 		
