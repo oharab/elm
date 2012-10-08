@@ -56,6 +56,8 @@
     <Compile Include="Extensions\OpenFileSystemExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web\CheckInType.cs" />
+    <Compile Include="Web\ICopyWSSSOAPService.cs" />
+    <Compile Include="Web\IListsWSSSOAPService.cs" />
     <Compile Include="Web\ISharepointService.cs" />
     <Compile Include="Web\SharepointService.cs" />
     <Compile Include="Web\Status.cs" />
