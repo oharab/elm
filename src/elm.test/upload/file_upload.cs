@@ -13,10 +13,10 @@ namespace elm.test.upload
 		protected Elm elm;
 		
 		private IFileSystem filesystem=new InMemoryFileSystem();
-		private DumbSharepointService sharepointservice;
+		private SharepointServiceHarness sharepointservice;
 		
 		public file_upload(){
-			sharepointservice=new DumbSharepointService();
+			sharepointservice=new SharepointServiceHarness();
 			elm=new Elm(sharepointservice,filesystem);
 		}
 		

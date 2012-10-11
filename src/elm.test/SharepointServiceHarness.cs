@@ -7,7 +7,7 @@ namespace elm.test
 	/// <summary>
 	/// Description of DumbSharepointService.
 	/// </summary>
-	public class DumbSharepointService:ISharepointService
+	public class SharepointServiceHarness:ISharepointService
 	{
 		public bool DestinationExists { get; set; }
 		public bool DestinationIsCheckedIn { get; set; }
