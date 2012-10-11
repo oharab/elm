@@ -26,20 +26,18 @@ namespace elm
 		public ElmResponse Upload(string source, Uri destination,string checkInComments)
 		{
 			log.DebugFormat("Upload of '{0}' to '{1}' beginning.",source,destination.AbsoluteUri);
-			ElmResponse r=new ElmResponse();
+			
 			try{
 				IFile sourceFile=fileSystem.GetFile(source);
-				sharepointService.CheckOutFile(destination,false,null);
+				if(!sharepointService.CheckOutFile(destination,false,null))
+				   return new ElmResponse{Status= Status.UnableToCheckOutDestination};
 				sharepointService.UploadFile(destination,sourceFile.ToByteArray());
 				sharepointService.CheckInFile(destination,checkInComments,CheckInType.CheckinMajorVersion);
-				r.Status=Status.Ok;
+				return new ElmResponse{Status=Status.Ok};
 			}catch(Exception ex){
 				log.ErrorFormat(ex,"Error uploading File.");
-				throw new ElmException();
+				return new ElmResponse{Status=Status.UnknownError};
 			}
-			
-			return r;
-			
 		}
 	}
 }

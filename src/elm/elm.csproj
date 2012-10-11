@@ -57,6 +57,7 @@
     <Compile Include="Web\ICopyWSSSOAPService.cs" />
     <Compile Include="Web\IListsWSSSOAPService.cs" />
     <Compile Include="Web\ISharepointService.cs" />
+    <Compile Include="Web\ISOAPService.cs" />
     <Compile Include="Web\ListsWSSWOAPService.cs" />
     <Compile Include="Web\SharepointService.cs" />
     <Compile Include="Web\Status.cs" />

@@ -14,12 +14,18 @@ namespace elm.shell.WindsorInstallers
 		public void Install(IWindsorContainer container, IConfigurationStore store)
 		{
 			container.Register(
-				Component.For<IListsWSSSOAPService>().ImplementedBy<ListsWSSWOAPService>()
-				.DependsOn(
-					Dependency.OnAppSettingsValue("Uri","ListsUri")
-				)
-				
-				,Component.For<ICopyWSSSOAPService>().ImplementedBy<CopyWSSSOAPService>()
+				Classes.FromAssemblyContaining<Elm>()
+				.BasedOn<ISOAPService>()
+				.Configure(c=>c.DependsOn(
+					Dependency.OnAppSettingsValue("Uri","SharepointUri")
+				))
+				.WithService.AllInterfaces()
+//				Component.For<IListsWSSSOAPService>().ImplementedBy<ListsWSSWOAPService>()
+//				.DependsOn(
+//					Dependency.OnAppSettingsValue("Uri","ListsUri")
+//				)
+//				
+//				,Component.For<ICopyWSSSOAPService>().ImplementedBy<CopyWSSSOAPService>()
 				,Component.For<ISharepointService>().ImplementedBy<SharepointService>()
 			);
 		}

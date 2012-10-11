@@ -3,7 +3,7 @@ using System;
 
 namespace elm.Web
 {
-	public interface ICopyWSSSOAPService
+	public interface ICopyWSSSOAPService:ISOAPService
 	{
 		
 	}

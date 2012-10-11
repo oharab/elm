@@ -4,9 +4,9 @@ namespace elm.Web
 {
 	public enum Status
 	{
-		Ok=200,
-		DestinationNotFound=404,
-		ServerError=500,
+		Ok,
+		DestinationNotFound,
+		UnableToCheckOutDestination,
 		UnknownError= -1
 	}
 }

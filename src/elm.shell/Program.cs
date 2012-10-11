@@ -22,7 +22,8 @@ namespace elm.shell
 				return;
 			}
 			
-			if(opt.Source ==null && opt.Destination!=null
+			if(opt.Source ==null && opt.Destination==null
+				|| opt.Source ==null && opt.Destination!=null
 			   || opt.Source!=null && opt.Destination==null)
 			{
 				opt.PrintUsage();
@@ -33,12 +34,15 @@ namespace elm.shell
 			{
 				container=BootstrapContainer();
 				Elm elm=container.Resolve<Elm>();
-				elm.Upload(opt.Source,opt.Destination,string.Empty);
+				var response=elm.Upload(opt.Source,opt.Destination,string.Empty);
+				Console.WriteLine("Elm Completed.");
+				Console.WriteLine("Status : '" +response.Status.ToString() + "'");
 			}
-			catch(Exception)
+			catch(Exception ex)
 			{
-				opt.PrintUsage();
-				Console.Read();
+				Console.WriteLine("Unexpected Error Occurred.");
+				Console.WriteLine(ex.Message);
+				Console.WriteLine();
 			}
 			finally{
 				if(container!=null)
