@@ -1,5 +1,6 @@
 ﻿
 using System;
+using Castle.Core.Logging;
 
 namespace elm.Web
 {
@@ -8,20 +9,36 @@ namespace elm.Web
 	/// </summary>
 	public class SharepointService:ISharepointService
 	{
+		private ILogger log=NullLogger.Instance;
+		
+		public ILogger Log {
+			get { return log; }
+			set { log = value; }
+		}
+		
 		private readonly ICopyWSSSOAPService copyService;
 		private readonly IListsWSSSOAPService listsService;
 		public SharepointService(ICopyWSSSOAPService copyService,IListsWSSSOAPService listsService)
 		{
+			this.copyService=copyService;
+			this.listsService=listsService;
 		}
 		
 		public bool CheckInFile(Uri pageUrl, string commment, CheckInType checkInType)
 		{
-			throw new NotImplementedException();
+			return this.listsService.CheckInFile(pageUrl.AbsoluteUri,commment,((int)checkInType).ToString());
 		}
 		
-		public bool CheckOutFile(Uri pageUrl, bool checkedOutToLocal, DateTime lastModified)
+		public bool CheckOutFile(Uri pageUrl, bool checkedOutToLocal, DateTime? lastModified)
 		{
-			throw new NotImplementedException();
+			string lastModifiedDateString=string.Empty;
+			if(lastModified!=null)
+				lastModifiedDateString=((DateTime)lastModified).ToUniversalTime().ToString ("R");
+			
+			return this.listsService.CheckOutFile(pageUrl.AbsoluteUri,checkedOutToLocal.ToString(),
+			                                      lastModifiedDateString
+			                                      
+			                                     );
 		}
 		
 		public bool IsCheckedOut(Uri pageUrl)

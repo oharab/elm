@@ -26,7 +26,7 @@ namespace elm.test
 			}
 		}
 		
-		public bool CheckOutFile(Uri pageUrl, bool checkedOutToLocal, DateTime lastModified)
+		public bool CheckOutFile(Uri pageUrl, bool checkedOutToLocal, DateTime? lastModified)
 		{
 			if(DestinationExists && DestinationIsCheckedIn)
 			{

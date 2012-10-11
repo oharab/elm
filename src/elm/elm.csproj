@@ -44,6 +44,7 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Web.Services" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Elm.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Web\ICopyWSSSOAPService.cs" />
     <Compile Include="Web\IListsWSSSOAPService.cs" />
     <Compile Include="Web\ISharepointService.cs" />
+    <Compile Include="Web\ListsWSSWOAPService.cs" />
     <Compile Include="Web\SharepointService.cs" />
     <Compile Include="Web\Status.cs" />
   </ItemGroup>
