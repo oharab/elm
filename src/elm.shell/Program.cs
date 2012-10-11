@@ -34,7 +34,7 @@ namespace elm.shell
 			{
 				container=BootstrapContainer();
 				Elm elm=container.Resolve<Elm>();
-				var response=elm.Upload(opt.Source,opt.Destination,string.Empty);
+				ElmResponse response=elm.Upload(opt.Source,opt.Destination,string.Empty);
 				Console.WriteLine("Elm Completed.");
 				Console.WriteLine("Status : '" +response.Status.ToString() + "'");
 			}

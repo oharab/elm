@@ -55,5 +55,10 @@ namespace elm.Web
 		{
 			throw new NotImplementedException();
 		}
+		
+		public bool DiscardCheckout(Uri destination)
+		{
+			return this.listsService.UndoCheckOut(destination.AbsoluteUri);
+		}
 	}
 }

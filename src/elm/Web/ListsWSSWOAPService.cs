@@ -45,7 +45,13 @@ namespace elm.Web
 			                               	lastmodified});
 			return ((bool)(results[0]));
 		}
-		
+
+		[SoapDocumentMethodAttribute("http://schemas.microsoft.com/sharepoint/soap/UndoCheckOut", RequestNamespace="http://schemas.microsoft.com/sharepoint/soap/", ResponseNamespace="http://schemas.microsoft.com/sharepoint/soap/", Use=SoapBindingUse.Literal, ParameterStyle=SoapParameterStyle.Wrapped)]
+		public bool UndoCheckOut(string pageUrl) {
+			object[] results = this.Invoke("UndoCheckOut", new object[] {
+			                               	pageUrl});
+			return ((bool)(results[0]));
+		}
 		
 		public Uri Uri {
 			get {
@@ -55,5 +61,6 @@ namespace elm.Web
 				this.Url=value.AbsoluteUri + SERVICE_PATH;
 			}
 		}
+		
 	}
 }

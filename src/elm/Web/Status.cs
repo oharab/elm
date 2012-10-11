@@ -7,6 +7,9 @@ namespace elm.Web
 		Ok,
 		DestinationNotFound,
 		UnableToCheckOutDestination,
+		UploadFailed,
+		DiscardCheckoutFailed,
+		CheckInFailed,
 		UnknownError= -1
 	}
 }
