@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Net;
 using System.Web.Services;
 using System.Web.Services.Description;
 using System.Web.Services.Protocols;
@@ -22,6 +23,10 @@ namespace elm.Web
 		public ListsWSSWOAPService(Uri Uri)
 		{
 			this.Url=Uri.AbsoluteUri;
+			//this.Proxy.Credentials = CredentialCache.DefaultCredentials;
+			this.Credentials=CredentialCache.DefaultNetworkCredentials;
+
+
 		}
 
 		[SoapDocumentMethodAttribute("http://schemas.microsoft.com/sharepoint/soap/CheckInFile", RequestNamespace="http://schemas.microsoft.com/sharepoint/soap/", ResponseNamespace="http://schemas.microsoft.com/sharepoint/soap/", Use=SoapBindingUse.Literal, ParameterStyle=SoapParameterStyle.Wrapped)]

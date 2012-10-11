@@ -39,11 +39,15 @@ namespace elm.shell
 		[FlagArgument(true)]
 		public bool Verbose { get; set; }
 		
-		[Argument(Helptext="Source file to upload to eMIS")]
-		public string Source { get; set; }
+		
+		
 		
 		[Argument(Helptext="Source file to upload to eMIS")]
-		public string Destination { get; set; }
+		public String Source { get; set; }
+
+		
+		[Argument(Helptext="Source file to upload to eMIS")]
+		public Uri Destination { get; set; }
 		
 	}
 }

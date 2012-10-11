@@ -17,7 +17,7 @@ namespace elm.test.upload
 		
 		public file_upload(){
 			sharepointservice=new DumbSharepointService();
-			elm=new Elm(sharepointservice);
+			elm=new Elm(sharepointservice,filesystem);
 		}
 		
 		public void given_source(string filename,string contents){

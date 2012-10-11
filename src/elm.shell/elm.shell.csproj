@@ -30,7 +30,7 @@
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <StartAction>Project</StartAction>
-    <StartArguments>--help --totallymadeupargument</StartArguments>
+    <StartArguments>--Source="C:\Temp\Automatic Checkout.xls" --Destination="http://wyp-infoshare/sites/ra/Projects%20and%20Planning/Performance-Statistics/Geospatial/Automatic%20Checkout.xls"</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -42,17 +42,28 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Web.Services" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Options.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WindsorInstallers\ElmInstaller.cs" />
+    <Compile Include="WindsorInstallers\LoggingInstaller.cs" />
+    <Compile Include="WindsorInstallers\OpenFileSystemInstaller.cs" />
+    <Compile Include="WindsorInstallers\SharepointSOAPInstaller.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\elm\elm.csproj">
       <Project>{CD3A5332-8765-48FB-ACFD-9D2969FC8A77}</Project>
       <Name>elm</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WindsorInstallers" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="..\..\wraps\openwrap\build\OpenWrap.CSharp.Targets" />
 </Project>

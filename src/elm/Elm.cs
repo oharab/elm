@@ -10,24 +10,27 @@ namespace elm
 	{
 		private readonly ISharepointService sharepointService;
 		private ILogger log=NullLogger.Instance;
-		
+		private readonly IFileSystem fileSystem;
 		public ILogger Log {
 			get { return log; }
 			set { log = value; }
 		}
 		
-		public Elm(ISharepointService sharepointService)
+		public Elm(ISharepointService sharepointService,IFileSystem fileSystem)
 		{
 			this.sharepointService=sharepointService;
+			this.fileSystem=fileSystem;
+			
 		}
 		
-		public ElmResponse Upload(IFile source, Uri destination,string checkInComments)
+		public ElmResponse Upload(string source, Uri destination,string checkInComments)
 		{
-			log.DebugFormat("Upload of '{0}' to '{1}' beginning.",source.Name,destination.AbsoluteUri);
+			log.DebugFormat("Upload of '{0}' to '{1}' beginning.",source,destination.AbsoluteUri);
 			ElmResponse r=new ElmResponse();
 			try{
-				sharepointService.CheckOutFile(destination,false,DateTime.Now);
-				sharepointService.UploadFile(destination,source.ToByteArray());
+				IFile sourceFile=fileSystem.GetFile(source);
+				sharepointService.CheckOutFile(destination,false,null);
+				sharepointService.UploadFile(destination,sourceFile.ToByteArray());
 				sharepointService.CheckInFile(destination,checkInComments,CheckInType.CheckinMajorVersion);
 				r.Status=Status.Ok;
 			}catch(Exception ex){

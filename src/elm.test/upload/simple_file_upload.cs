@@ -28,7 +28,7 @@ namespace elm.test.upload
 		{
 			given_destination_exists();
 			given_destination_checked_in();
-			Executing(()=>elm.Upload(source,destination,string.Empty))
+			Executing(()=>elm.Upload(source.Name,destination,string.Empty))
 				.ShouldNotThrow()
 				;
 		}
@@ -38,7 +38,7 @@ namespace elm.test.upload
 		{
 			given_destination_exists();
 			given_destination_checked_out();
-			Executing(()=>elm.Upload(source,destination,string.Empty))
+			Executing(()=>elm.Upload(source.Name,destination,string.Empty))
 				.ShouldThrow<ElmException>();
 		}
 		
@@ -47,7 +47,7 @@ namespace elm.test.upload
 		public void destination_not_existing_throws()
 		{
 			given_destination_does_not_exist();
-			Executing(()=>elm.Upload(source,destination,string.Empty))
+			Executing(()=>elm.Upload(source.Name,destination,string.Empty))
 				.ShouldThrow<ElmException>();
 		}
 		

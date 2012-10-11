@@ -5,6 +5,8 @@
  * 
  *  */
 using System;
+using Castle.Windsor;
+using Castle.Windsor.Installer;
 
 namespace elm.shell
 {
@@ -20,14 +22,36 @@ namespace elm.shell
 				return;
 			}
 			
-			if(opt.Source==string.Empty && opt.Destination!=string.Empty 
-			   || opt.Source!=string.Empty && opt.Destination==string.Empty)
+			if(opt.Source ==null && opt.Destination!=null
+			   || opt.Source!=null && opt.Destination==null)
 			{
 				opt.PrintUsage();
 				return;
 			}
-			
-			
+			IWindsorContainer container=null;
+			try
+			{
+				container=BootstrapContainer();
+				Elm elm=container.Resolve<Elm>();
+				elm.Upload(opt.Source,opt.Destination,string.Empty);
+			}
+			catch(Exception)
+			{
+				opt.PrintUsage();
+				Console.Read();
+			}
+			finally{
+				if(container!=null)
+					container.Dispose();
+			}
+		}
+		
+		private static IWindsorContainer BootstrapContainer()
+		{
+			return new WindsorContainer()
+				.Install(Configuration.FromAppConfig(),
+				         FromAssembly.This()
+				        );
 		}
 	}
 }
