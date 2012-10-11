@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using elm.Web;
+using Moq;
 using OpenFileSystem.IO;
 using OpenFileSystem.IO.FileSystems.InMemory;
 
@@ -13,11 +14,11 @@ namespace elm.test.upload
 		protected Elm elm;
 		
 		private IFileSystem filesystem=new InMemoryFileSystem();
-		private SharepointServiceHarness sharepointservice;
-		
-		public file_upload(){
-			sharepointservice=new SharepointServiceHarness();
-			elm=new Elm(sharepointservice,filesystem);
+		private Mock<ISharepointService> sharepointservice;
+				
+		protected override void BeforeExecuting()
+		{
+			elm=new Elm(sharepointservice.Object,filesystem);
 		}
 		
 		public void given_source(string filename,string contents){
@@ -31,21 +32,21 @@ namespace elm.test.upload
 		}
 		
 		public void given_destination_checked_in(){
-			sharepointservice.DestinationIsCheckedIn=true;
+			
 		}
 		
 		public void given_destination_exists()
 		{
-			sharepointservice.DestinationExists=true;
+			
 		}
 		public void given_destination_does_not_exist()
 		{
-			sharepointservice.DestinationExists=false;
+			
 		}
 		
 		public void given_destination_checked_out()
 		{
-			sharepointservice.DestinationIsCheckedIn=false;
+			
 		}
 	}
 }

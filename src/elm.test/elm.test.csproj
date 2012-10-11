@@ -39,12 +39,12 @@
     <Compile Include="extensions\test_extensions.cs" />
     <Compile Include="extensions\web_extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SharepointServiceHarness.cs" />
     <Compile Include="upload\file_upload.cs" />
     <Compile Include="upload\simple_file_upload.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="extensions" />
+    <Folder Include="sharepointservice" />
     <Folder Include="upload" />
   </ItemGroup>
   <ItemGroup>

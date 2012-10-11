@@ -21,8 +21,14 @@ namespace elm.test
 		{
 		}
 
+		protected virtual void BeforeExecuting()
+		{
+			
+		}
+		
 		public Action Executing(Action action)
 		{
+			BeforeExecuting();
 			return action;
 		}
 	}
