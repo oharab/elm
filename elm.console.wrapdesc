@@ -1,3 +1,4 @@
 ﻿name: elm
 depends: openwrap anchored content
 depends: getoptnet
+depends: castle.windsor-log4net

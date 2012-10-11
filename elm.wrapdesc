@@ -5,3 +5,4 @@ depends: openfilesystem = 1.0.1
 depends: openwrap anchored content >= 2.0 and < 3.0
 directory-structure: src/*{scope: shell=console}*/**
 directory-structure: src/*{scope: test=test}*/**
+depends: castle.core
